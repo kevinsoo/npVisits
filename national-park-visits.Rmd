@@ -39,7 +39,7 @@ parkTotals <- parks %>%
 top10 <- parkTotals$ShortName[1:10]
 ```
 
-#### Growing popularity
+### Growing popularity
 
 Last year, the [National Park Service](https://www.nps.gov/index.htm) celebrated its 100th anniversary. I've had the privilege to camp at several of them in the last few years (you can see photos I've taken on some of my travels [here](http://kevinswx.tumblr.com/)), and I'll be going to [Rocky Mountain National Park](https://www.nps.gov/romo/index.htm) in Colorado this Summer.
 
@@ -82,7 +82,7 @@ d %>%
 
 The parks with wider error bars typically have fewer data points or a few outliers. For example, Channel Islands National Park had an increase in visitors from 300 in 1966 to 15,700 in 1967 (a 513% increase). The graph shows that different parks are attracting visitors at different rates. While I hope to one day make it to [Channel Islands National Park](https://www.nps.gov/chis/index.htm), it was only the 43rd most visited park in 2016 (out of 59), and not quite in the same league as the big-hitters.
 
-#### The Big 10
+### The Big 10
 
 In 2016, the top 10 most popular national parks accounted for 58.25% of all national park visits! These big-hitters are the most famous parks that I'd bet most people could name. The next graph plots the visitor share of these 10 parks (out of all visitors to all national parks) between 1916 and 2016.
 
@@ -119,7 +119,7 @@ parkTotals %>%
 
 Most of the Big 10 are from the Intermountain region, which covers states in the middle of the country. The Pacific West region has two Big 10 parks (Yosemite in California, Olympic in Washington). Those parks are distributed across the Western half of the United States, leaving the two remaining parks in the Eastern half (Acadia in the Northeast, Great Smoky Mountains in the Southeast). These two parks (and Great Smoky Mountains in particular) likely attract visitors living on the East coast who don't want to make a longer trip West. On the other hand, people living out West are spoiled for choice.
 
-#### This land is your land
+### This land is your land
 
 To avoid crowds, common sense dictates that I stay clear of the Big 10. However, the crowd in a park depends not only on the number of visitors, but also how much area a park has to hold its visitors. The National Parks vary greatly in size -- for example, [Wrangell-St. Elias National Park](https://www.nps.gov/wrst/index.htm) is the largest at over 8 million acres, while the Channel Islands contains only 250 acres.
 
@@ -140,7 +140,7 @@ parks %>% filter(Year==2016) %>%
          y="Visitors")
 ```
 
-Parks below the diagonal line have less than a visitor per acre. These include some really large but rarely visited parks like [Gates of the Arctic](https://www.nps.gov/gaar/index.htm), which spans 7.5 million acres only got 10,047 visitors in 2016 -- the fewest of all national parks. Parks above the diagonal line have more than a visitor per acre. These include all of the Big 10.
+Parks below the diagonal line have less than a visitor per acre. These include some really large but rarely visited parks like [Gates of the Arctic](https://www.nps.gov/gaar/index.htm), which spans 7.5 million acres but only got 10,047 visitors in 2016 -- the fewest of all national parks. Parks above the diagonal line have more than a visitor per acre. These include all of the Big 10.
 
 I computed a *crowd-factor* for each park in 2016; the number of visitors divided by the number of acres in a park. This is an imperfect indicator of crowding, because not all of the area encompassed by a park is equally capable or likely to hold visitors (a better indicator of 'habitable space' might be the number of campsites and miles of hiking trails, but I don't have that data yet). The following plot displays the *crowd-factor* for each park. 
 
@@ -174,7 +174,7 @@ Small parks will also have higher than average *crowd-factors*, even if they ten
 
 If you're looking for a non-crowded National Park visit, try one of the parks in Alaska -- they generally score really low on *crowd-factor*.
 
-#### Conclusion
+### Conclusion
 
 To visit the National Parks and avoid the crowds, you'll need to take into account the season. Unfortunately, I don't have visitation data by month, but I'll update this post to incorporate that information when I do. Still, simply taking into account annual visitation statistics and the size of each park gives you an idea of what to expect.
 
