@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1498783744800.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "230EB053",
+    "lastKnownWriteTime" : 8772251065773593300,
+    "last_content_update" : 1498783744800,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "6EFD29CE",
+        "caption" : "parkTotals",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=parkTotals&cache_key=6EFD29CE",
+        "displayedObservations" : "59",
+        "environment" : "",
+        "object" : "parkTotals",
+        "preview" : "0",
+        "totalObservations" : "59",
+        "variables" : "13"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

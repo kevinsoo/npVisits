@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1498748664258.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "3D6B0EA1",
+    "lastKnownWriteTime" : 8532478928990765062,
+    "last_content_update" : 1498748664258,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "E5BC9C98",
+        "caption" : "nps",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=nps&cache_key=E5BC9C98",
+        "displayedObservations" : "21560",
+        "environment" : "",
+        "object" : "nps",
+        "preview" : "0",
+        "totalObservations" : "21560",
+        "variables" : "8"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

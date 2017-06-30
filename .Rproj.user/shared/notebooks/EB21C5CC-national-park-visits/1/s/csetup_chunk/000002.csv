@@ -1,0 +1,42 @@
+"0","knitr::opts_chunk$set(echo = TRUE)"
+"0","# load packages"
+"0","library(tidyverse)"
+"2","Loading tidyverse: ggplot2
+Loading tidyverse: tibble
+Loading tidyverse: tidyr
+Loading tidyverse: readr
+Loading tidyverse: purrr
+Loading tidyverse: dplyr
+"
+"2","Conflicts with tidy packages -------------------------------------------------------------------------------------------------------
+"
+"2","filter(): dplyr, stats
+lag():    dplyr, stats
+"
+"0","library(ggthemes)"
+"0","library(cowplot)"
+"2","
+Attaching package: ‘cowplot’
+
+"
+"2","The following object is masked from ‘package:ggplot2’:
+
+    ggsave
+
+"
+"0","library(ggrepel)"
+"0","# load data"
+"0","load(""parkVisits.Rda"")"
+"0","# get total by year"
+"0","totals <- parks %>% group_by(Year) %>%"
+"0","    summarise(YearTotal = sum(Visitors))"
+"0","# merge"
+"0","parks <- inner_join(parks, totals)"
+"2","Joining, by = c(""Year"", ""YearTotal"")
+"
+"0","parks <- parks %>% mutate(Share = Visitors/YearTotal)"
+"0","# get top 10 parks"
+"0","parkTotals <- parks %>%"
+"0","    filter(Year==2016) %>%"
+"0","    arrange(-Visitors)"
+"0","top10 <- parkTotals$ShortName[1:10]"

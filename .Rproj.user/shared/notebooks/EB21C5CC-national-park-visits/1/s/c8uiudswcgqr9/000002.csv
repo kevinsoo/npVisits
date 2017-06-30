@@ -1,0 +1,15 @@
+"0","parks %>% filter(Year==2016) %>%
+    ggplot(aes(x=Area, y=Visitors)) +
+    geom_point(alpha=.2) +
+    geom_abline(slope=1, intercept=0) +
+    geom_label_repel(data=parkTotals %>% na.omit, aes(label=Label, color=Label), size=2) +
+    theme_minimal() +
+    scale_color_brewer(palette = ""Paired"", guide=FALSE) +
+    labs(title=""Crowding in the national parks"",
+         subtitle=""Data from 2016"",
+         caption=""\nDiagonal line indicates 1 person per acre"",
+         y=""Visitors"")
+"
+"2","There were 14 warnings (use warnings() to see them)"
+"2","
+"

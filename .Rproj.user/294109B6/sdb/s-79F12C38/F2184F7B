@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# load stuff\nlibrary(tidyverse)\nlibrary(ggthemes)\nnps <- read_csv(\"All National Parks Visitation 1904-2016.csv\")\n\n# clean data\nnps <- nps %>%\n    select(Parkname:YearRaw) %>%\n    arrange(`Unit Name`, YearRaw) %>%\n    filter(YearRaw!=\"Total\")\n\ncolnames(nps) <- c(\"Park\", \"Region\", \"State\", \"Code\", \"Name\", \"Type\", \"Visitors\", \"Year\")\nnps$Park <- factor(nps$Park)\nnps$Region <- factor(nps$Region)\nnps$State <- factor(nps$State)\nnps$Code <- factor(nps$Code)\nnps$Name <- factor(nps$Name)\nnps$Type <- factor(nps$Type)\nnps$Year <- as.numeric(nps$Year)\n\n# get national park totals\nparkTotals <- nps %>%\n    filter(Type==\"National Park\", \n           Code!=\"WOTR\",\n           Name!=\"Denali National Preserve\") %>% # for some reason, Wolf Trap Center for Performing Arts is there, and Denali is doubled\n    group_by(Name) %>%\n    summarise(Total = sum(Visitors)) %>%\n    arrange(-Total)\n\n# get area for each national park from https://en.wikipedia.org/wiki/List_of_national_parks_of_the_United_States\narea <- read_csv(\"parks_area.csv\")\n\n# merge with nps data frame\nparks <- merge(nps, area) %>%\n    select(Name, Region, State, Code, Visitors, Year, Area) %>%\n    arrange(Name, Year) %>% \n    as_tibble() %>%\n    mutate(PersonAcre = Visitors/Area)\n\n# regions\nparks$Region <- ifelse(parks$Region == \"AK\", \"Alaska\",\n                       ifelse(parks$Region == \"IM\", \"Intermountain\",\n                              ifelse(parks$Region ==\"MW\", \"Midwest\",\n                                     ifelse(parks$Region == \"NE\", \"Northeast\",\n                                            ifelse(parks$Region ==\"PW\", \"Pacific West\",\n                                                   ifelse(parks$Region == \"SE\", \"Southeast\", NA))))))\n\n# set columns\nparks$Name <- factor(parks$Name)\nparks$ShortName <- factor(parks$ShortName)\nparks$Region <- factor(parks$Region)\nparks$State <- factor(parks$State)\nparks$code <- factor(parks$Code)\n\n# get change in visitors\nfor (i in unique(parks$ShortName)) {\n    tmp <- parks %>% \n        filter(ShortName==i) %>%\n        mutate(Change = c(NA, diff(Visitors)),\n               ChangeProp = Change/lag(Visitors))\n    if (i==\"Acadia\") { df <- tmp }\n    else { df <- rbind(df, tmp) }\n}\nparks <- df\n\n# save data frame\nsave(parks, file=\"parkVisits.Rda\")\n",
+    "created" : 1498749527357.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1075522122",
+    "id" : "F2184F7B",
+    "lastKnownWriteTime" : 1498775249,
+    "last_content_update" : 1498775249078,
+    "path" : "~/Box Sync/Personal/npVisits/clean_data.R",
+    "project_path" : "clean_data.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
